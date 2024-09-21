@@ -1,0 +1,363 @@
+.nav {
+    --color: #7c8ab7; 
+    background: none;
+    width: 100px;
+    height: 56px;
+    position:absolute;
+    top: 10px; /* adjust top position as needed */
+    right: 10px; /* adjust right position as needed */;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    svg {
+      fill: none;
+      stroke: var(--color);
+      stroke-width: 7px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      justify-content: center;
+      align-items: center;
+      use {
+        &:nth-of-type(1) {
+          opacity: 1;
+          stroke-dashoffset: 221;
+          stroke-dasharray: 46 249;
+          transition: stroke-dashoffset .12s linear .2s, stroke-dasharray .12s linear .2s, opacity 0s linear .2s;  
+        }
+        &:nth-of-type(2) {
+          animation: stroke-animation-reverse 1.2s ease-out forwards;
+        } 
+      }
+    }
+    .tooltip {
+      visibility: hidden;
+      width: 70px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 5px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -35px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .nav:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    input {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+      cursor: pointer;
+      opacity: 0;
+      &:checked {
+        + svg {
+          use {
+            &:nth-of-type(1) {
+              stroke-dashoffset: 175;
+              stroke-dasharray: 0 295;
+              opacity: 0;
+              transition: stroke-dashoffset .07s linear .07s, stroke-dasharray .07s linear .07s, opacity 0s linear .14s;  
+            }
+            &:nth-of-type(2) {
+              animation: stroke-animation 1.2s ease-out forwards;
+            } 
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes stroke-animation {
+    0% {
+      stroke-dashoffset: 295;
+      stroke-dasharray: 25 270;
+    }
+    50% {
+      stroke-dashoffset: 68;
+      stroke-dasharray: 59 236;
+    }
+    65% {
+      stroke-dashoffset: 59;
+      stroke-dasharray: 59 236;
+    }
+    100% {
+      stroke-dashoffset: 68;
+      stroke-dasharray: 59 236;
+    }
+  }
+  
+  @keyframes stroke-animation-reverse {
+    0% {
+      stroke-dashoffset: 68;
+      stroke-dasharray: 59 236;
+    }
+    50% {
+      stroke-dashoffset: 290;
+      stroke-dasharray: 25 270;
+    }
+    65% {
+      stroke-dashoffset: 295;
+      stroke-dasharray: 25 270;
+    }
+    100% {
+      stroke-dashoffset: 290;
+      stroke-dasharray: 25 270;
+    }
+  }
+  #menu{
+    justify-content: center;
+    align-items: center;
+  }
+  #img{
+    position:absolute;
+    top: 13px; /* adjust top position as needed */
+    right: 30px; /* adjust right position as needed */;
+    padding-right: 90px;
+    display: flex;
+    align-items: center;
+  }
+  #par{
+    
+    margin-right: 5px;
+    padding-right: 1px;
+    font-size: 20px; /* Change font size */
+    color: #7c8ab7; /* Change text color */
+    font-family: Arial, sans-serif;
+  }
+  body{
+    background-color:#e1e1e2;
+    
+  }
+  footer {
+    background-color: #163d57; /* لون أزرق داكن */
+    color: white;
+    text-align: center;
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    padding: 1px 0;
+    /* position: fixed; */
+    margin-top: 20px;
+    width: 100%;
+    bottom: 0;
+    border-radius: 10px;
+  }
+  footer .foot{
+    color: #ff6600;
+    
+  }
+  .line {
+    border-bottom: 1px solid #ccc; /* Adjust the color and thickness as needed */
+    margin-top: 70px; /* Adjust the distance between header and line as needed */
+  }
+  .Image{
+    display: block;
+    margin: 20px auto;
+  }
+  /* Style for introduction paragraph */
+.introduction {
+  text-align: center;
+  
+}
+
+.introduction p {
+  font-size: 24px;
+  color: #333; /* Default paragraph color */
+}
+
+/* Style for highlighted word */
+.introduction .highlight {
+  color: #ff6600; /* Highlight color */
+}
+  #large-sentence, #second-large-sentence {
+    font-size: 60px; /* Adjust font size as needed */
+    text-align: center;
+    margin-top: 50px; /* Adjust margin as needed */
+    color: #303642;
+}
+
+.sections-container {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.second-sections {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.first-sections {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* Style for second set of sections */
+
+
+/* CSS for the sections */
+.section {
+  width: 90%; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  margin: 20px auto; /* Adjust margin as needed */
+  border: 1px solid #ccc; /* Add borders or remove as needed */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* Hide overflow to round the corners */
+  border-radius: 20px; /* Add rounded corners */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a drop shadow effect */
+}
+/* CSS for the images inside sections */
+.section img {
+  width: 100%; /* Make image fill the section */
+  height: 100%; /* Make image fill the section */
+  object-fit: cover; /* Cover the entire section with the image */
+  position: absolute; /* Position the image absolutely within the section */
+  top: 0; /* Align image to the top */
+  left: 0; /* Align image to the left */
+}
+
+
+
+.container {
+  background-color: #e7e7e7;
+  padding: 10px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  width: 80%;
+  
+  
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+  padding: 5px;
+}
+
+input[type="text"] {
+  width: calc(100% - 20px);
+  
+  padding-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="button"] {
+  background-color: #163d57;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  font-size:large;
+}
+
+input[type="button"]:hover {
+  
+  background-color: #3a6c8d;
+}
+
+/* إضافة تباعد بين العناصر */
+.form-group > label + input {
+  margin-top: 5px;
+}
+
+/* تنسيق لعرض الحقول بجانب بعضها لبعض */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .form-group {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-group label {
+    width: 45%;
+  }
+
+  .form-group input[type="text"] {
+    width: 50%;
+    margin: 0;
+  }
+}
+#toast {
+  visibility: hidden;
+  min-width: 300px; /* Increased width */
+  margin-left: -150px; /* Adjusted to match the new width */
+  background-color: #444; /* Darker background for visibility */
+  color: #fff; /* White text color */
+  text-align: center;
+  border-radius: 30px; /* Slightly more rounded corners */
+  border: 2px solid #888; /* Border to match webpage color */
+  padding: 16px; /* Padding for better spacing */
+  position: fixed;
+  z-index: 1;
+  left: 44%;
+  
+  bottom: 30px;
+  font-size: 18px; /* Slightly larger font size */
+  
+  white-space: nowrap;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 1.5s 4.5s; /* Extended fadeout time */
+  animation: fadein 0.5s, fadeout 1.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
