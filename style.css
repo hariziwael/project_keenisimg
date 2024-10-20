@@ -12,206 +12,194 @@
   cursor: pointer;
   transition: transform 0.3s ease; /* Add transition for 3D effect */
 
-    svg {
-      fill: none;
-      stroke: var(--color);
-      stroke-width: 7px;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      justify-content: center;
-      align-items: center;
-      use {
-        &:nth-of-type(1) {
-          opacity: 1;
-          stroke-dashoffset: 221;
-          stroke-dasharray: 46 249;
-          transition: stroke-dashoffset .12s linear .2s, stroke-dasharray .12s linear .2s, opacity 0s linear .2s;  
-        }
-        &:nth-of-type(2) {
-          animation: stroke-animation-reverse 1.2s ease-out forwards;
-        } 
+  svg {
+    fill: none;
+    stroke: var(--color);
+    stroke-width: 7px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    justify-content: center;
+    align-items: center;
+    use {
+      &:nth-of-type(1) {
+        opacity: 1;
+        stroke-dashoffset: 221;
+        stroke-dasharray: 46 249;
+        transition: stroke-dashoffset 0.12s linear 0.2s,
+          stroke-dasharray 0.12s linear 0.2s, opacity 0s linear 0.2s;
+      }
+      &:nth-of-type(2) {
+        animation: stroke-animation-reverse 1.2s ease-out forwards;
       }
     }
-    .tooltip {
-      visibility: hidden;
-      width: 70px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 5px;
-      border-radius: 6px;
-      position: absolute;
-      z-index: 1;
-      bottom: 100%;
-      left: 50%;
-      margin-left: -35px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .nav:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
-      transform: rotateX(10deg) rotateY(10deg); /* 3D rotation on hover */
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
-    }
-    input {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 2;
-      cursor: pointer;
-      opacity: 0;
-      &:checked {
-        + svg {
-          use {
-            &:nth-of-type(1) {
-              stroke-dashoffset: 175;
-              stroke-dasharray: 0 295;
-              opacity: 0;
-              transition: stroke-dashoffset .07s linear .07s, stroke-dasharray .07s linear .07s, opacity 0s linear .14s;  
-            }
-            &:nth-of-type(2) {
-              animation: stroke-animation 1.2s ease-out forwards;
-            } 
+  }
+  .tooltip {
+    visibility: hidden;
+    width: 70px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -35px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .nav:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateX(10deg) rotateY(10deg); /* 3D rotation on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
+  }
+  input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+    &:checked {
+      + svg {
+        use {
+          &:nth-of-type(1) {
+            stroke-dashoffset: 175;
+            stroke-dasharray: 0 295;
+            opacity: 0;
+            transition: stroke-dashoffset 0.07s linear 0.07s,
+              stroke-dasharray 0.07s linear 0.07s, opacity 0s linear 0.14s;
+          }
+          &:nth-of-type(2) {
+            animation: stroke-animation 1.2s ease-out forwards;
           }
         }
       }
     }
   }
-  
-  @keyframes stroke-animation {
-    0% {
-      stroke-dashoffset: 295;
-      stroke-dasharray: 25 270;
-    }
-    50% {
-      stroke-dashoffset: 68;
-      stroke-dasharray: 59 236;
-    }
-    65% {
-      stroke-dashoffset: 59;
-      stroke-dasharray: 59 236;
-    }
-    100% {
-      stroke-dashoffset: 68;
-      stroke-dasharray: 59 236;
-    }
-  }
-  
-  @keyframes stroke-animation-reverse {
-    0% {
-      stroke-dashoffset: 68;
-      stroke-dasharray: 59 236;
-    }
-    50% {
-      stroke-dashoffset: 290;
-      stroke-dasharray: 25 270;
-    }
-    65% {
-      stroke-dashoffset: 295;
-      stroke-dasharray: 25 270;
-    }
-    100% {
-      stroke-dashoffset: 290;
-      stroke-dasharray: 25 270;
-    }
-  }
-  #menu{
-    justify-content: center;
-    align-items: center;
-  }
-  #img{
-    position:absolute;
-    top: 13px; /* adjust top position as needed */
-    right: 30px; /* adjust right position as needed */;
-    padding-right: 90px;
-    display: flex;
-    align-items: center;
-  }
-  #par{
-    
-    margin-right: 5px;
-    padding-right: 1px;
-    font-size: 20px; /* Change font size */
-    color: #7c8ab7; /* Change text color */
-    font-family: Arial, sans-serif;
-  }
-  body{
-    background-color:#e1e1e2;
-    
-  }
-  footer {
-    background-color: #163d57; /* لون أزرق داكن */
-    color: white;
-    text-align: center;
-    font-size: large;
-    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
-    padding: 1px 0;
-    /* position: fixed; */
-    margin-top: 20px;
-    width: 100%;
-    bottom: 0;
-    border-radius: 10px;
-  }
-  footer .foot {
-    color: #ff6600;
-  }
-  .line {
-    border-bottom: 3px solid #ccc;
-    margin-top: 70px;
-    box-shadow:  15px #7c8ab7;
-  }
-   /* .Image{
-    display: block;
-    margin: 20px auto;
-  }  */
+}
 
-  /* 3D container for the image */
-  .image-container {
-    width: 80%;
-    height: 30%;
-    margin: 20px auto;
-    perspective: 1200px; /* Adds depth for 3D effect */
+@keyframes stroke-animation {
+  0% {
+    stroke-dashoffset: 295;
+    stroke-dasharray: 25 270;
+  }
+  50% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+  65% {
+    stroke-dashoffset: 59;
+    stroke-dasharray: 59 236;
+  }
+  100% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+}
+
+@keyframes stroke-animation-reverse {
+  0% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+  50% {
+    stroke-dashoffset: 290;
+    stroke-dasharray: 25 270;
+  }
+  65% {
+    stroke-dashoffset: 295;
+    stroke-dasharray: 25 270;
+  }
+  100% {
+    stroke-dashoffset: 290;
+    stroke-dasharray: 25 270;
+  }
+}
+#menu {
+  justify-content: center;
+  align-items: center;
+}
+#img {
+  position: absolute;
+  top: 13px; /* adjust top position as needed */
+  right: 30px; /* adjust right position as needed */
+  padding-right: 90px;
+  display: flex;
+  align-items: center;
+}
+#par {
+  margin-right: 5px;
+  padding-right: 1px;
+  font-size: 20px; /* Change font size */
+  color: #7c8ab7; /* Change text color */
+  font-family: Arial, sans-serif;
+}
+body {
+  background-color: #e1e1e2;
+}
+footer {
+  background-color: #0d3d54; /* Couleur bleue un peu plus claire */
+  color: #f0f0f0; /* Couleur de texte gris clair pour un meilleur contraste */
+  text-align: center;
+  font-size: large;
+  font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
+    sans-serif;
+  padding: 10px 0; /* Augmenter le padding pour une meilleure visibilité */
+  margin-top: 20px;
+  width: 100%;
+  bottom: 0;
+  border-radius: 10px;
+}
+
+footer .foot {
+  color: #ff9900; /* Couleur orange légèrement plus claire */
+}
+.line {
+  border-bottom: 3px solid #ccc;
+  margin-top: 70px;
+  box-shadow: 15px #7c8ab7;
+}
+
+/* 3D container for the image */
+.image-container {
+  width: 80%;
+
+  margin: 20px auto;
+  perspective: 1200px; /* Adds depth for 3D effect */
 }
 
 .Image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    transform-style: preserve-3d; /* Ensures 3D transforms apply */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Softer shadow for resting state */
-    border-radius: 15px; /* Adding slight rounding for a smoother look */
-    display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d; /* Ensures 3D transforms apply */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Softer shadow for resting state */
+  border-radius: 15px; /* Adding slight rounding for a smoother look */
+  display: block;
 }
 
-  /* Style for introduction paragraph */
+/* Style for introduction paragraph */
 .introduction {
   text-align: center;
-  
 }
 
 .introduction p {
   font-size: 24px;
   color: #333; /* Default paragraph color */
   margin: 10px;
-  
 }
 
 /* Style for highlighted word */
 .introduction .highlight {
   color: #ff6600; /* Highlight color */
 }
-  /* #large-sentence, #second-large-sentence {
-    font-size: 60px; /* Adjust font size as needed */
-  /*  text-align: center;
-    padding: auto;
-     /* Adjust margin as needed */
-   /* color: #303642;
-    border: 5px solid rgb(24, 190, 52) ;
-} */
 
-#large-sentence, #second-large-sentence {
+#large-sentence,
+#second-large-sentence {
   font-size: 55px; /* Keep large font size for prominence */
   text-align: center;
   margin: auto 0; /* Increase vertical spacing */
@@ -223,18 +211,18 @@
   text-transform: uppercase; /* Make text uppercase for a modern feel */
   position: relative;
   z-index: 1;
-  
 }
 
 /* Add a subtle gradient background for text */
-#large-sentence::before, #second-large-sentence::before {
+#large-sentence::before,
+#second-large-sentence::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 90%;
   height: 90%;
-  
+
   z-index: -1;
   transform: skewY(-3deg); /* Adds a slight skew for a dynamic look */
   border-radius: 10px; /* Smooth out the corners */
@@ -243,36 +231,24 @@
 }
 
 /* Add subtle shadow to make text pop */
-#large-sentence, #second-large-sentence {
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+#large-sentence,
+#second-large-sentence {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
 }
 
-
 .sections-container {
-  display:flex;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 10px;
-  
 }
-/* .second-sections {
-  display:flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+
+.second-sections,
 .first-sections {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-} */
-
-.second-sections, .first-sections {
-  display: flex;
-  flex-direction: column;
-  
 }
 /* Style for second set of sections */
-
 
 /* CSS for the sections */
 .section {
@@ -280,7 +256,7 @@
   height: 200px;
   margin: 10px auto;
   border: 1px solid #ccc;
-  
+
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -289,7 +265,6 @@
   perspective: 1000px; /* Add perspective for 3D effect */
   transform-style: preserve-3d;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  
 }
 
 .section:hover {
@@ -311,7 +286,6 @@
   transform: scale(1.1); /* Zoom in on hover */
 }
 
-
 .container {
   background-color: #e7e7e7;
   padding: 10px;
@@ -319,8 +293,6 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   width: 80%;
-  
-  
 }
 
 h2 {
@@ -343,7 +315,7 @@ label {
 
 input[type="text"] {
   width: calc(100% - 20px);
-  
+
   padding-right: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -366,10 +338,9 @@ input[type="button"] {
 }
 
 input[type="button"]:hover {
-  background-color: #3a6c8d;
+  background-color: #246088;
   transform: translateY(-5px); /* Button moves up slightly on hover */
 }
-
 
 /* إضافة تباعد بين العناصر */
 .form-group > label + input {
@@ -415,12 +386,12 @@ input[type="button"]:hover {
   position: fixed;
   z-index: 1;
   left: 44%;
-  
+
   bottom: 30px;
   font-size: 18px; /* Slightly larger font size */
-  
+
   white-space: nowrap;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #toast.show {
@@ -430,21 +401,45 @@ input[type="button"]:hover {
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
